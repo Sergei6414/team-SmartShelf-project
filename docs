@@ -1,0 +1,25 @@
+# Создаем основные папки
+mkdir -p docs scripts
+mkdir -p practical-works/practical-work-{01..08}
+
+# Создаем файлы в docs и корне
+touch README.md .gitignore
+touch docs/team-contract.md docs/roles-and-responsibilities.md docs/raci-matrix.md
+
+# Наполняем practical-works
+for i in {01..02}; do
+  touch practical-works/practical-work-$i/report.md
+  mkdir -p practical-works/practical-work-$i/assets
+  touch practical-works/practical-work-$i/assets/.gitkeep
+done
+
+for i in {03..08}; do
+  touch practical-works/practical-work-$i/report.md
+  mkdir -p practical-works/practical-work-$i/src
+  touch practical-works/practical-work-$i/src/.gitkeep
+done
+
+# Отправляем в Git
+git add .
+git commit -m "chore: создана структура папок согласно заданию"
+git push origin main
